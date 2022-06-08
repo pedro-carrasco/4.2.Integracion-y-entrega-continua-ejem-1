@@ -22,7 +22,7 @@ public class ItemsControllerTest {
 
         // THEN
 
-        assertThat(postedItem.getDescription()).isEqualTo(itemDescription + "a");
+        assertThat(postedItem.getDescription()).isEqualTo(itemDescription);
     }
 
 }
