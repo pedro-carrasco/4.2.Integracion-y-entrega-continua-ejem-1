@@ -5,27 +5,24 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 public class ItemsControllerTest {
+    @Test
+    public void postItemTest() throws Exception {
+        // GIVEN
+        ItemsRepository itemsRepository = new ItemsRepository();
 
-	@Test
-	public void postItemTest() throws Exception {
+        Item item = new Item();
+        String itemDescription = "Tomate";
+        boolean itemCheked = false;
+        item.setDescription(itemDescription);
+        item.setChecked(itemCheked);
 
-		// GIVEN
+        // WHEN
 
-		ItemsRepository itemsRepository = new ItemsRepository();
+        Item postedItem = itemsRepository.postItem(item);
 
-		Item item = new Item();
-		String itemDescription = "Tomate";
-		boolean itemCheked = false;
-		item.setDescription(itemDescription);
-		item.setChecked(itemCheked);
+        // THEN
 
-		// WHEN
-
-		Item postedItem = itemsRepository.postItem(item);
-		
-		// THEN
-
-		assertThat(postedItem.getDescription()).isEqualTo(itemDescription);
-	}
+        assertThat(postedItem.getDescription()).isEqualTo(itemDescription);
+    }
 
 }
